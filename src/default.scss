@@ -1,0 +1,94 @@
+@import "animation";
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  height: 80px;
+  width: 500px;
+  margin: 10px 0 0 10px;
+  background: #131316;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.icon {
+  color: #fff;
+  display: flex;
+  margin: 0 7.5px 0 15px;
+  cursor: pointer;
+}
+
+.input {
+  display: flex;
+  height: 30px;
+  width: 0px;
+  margin: 0 10px 0 10px;
+  transition: all 0.5s;
+  font-size: 1.7rem;
+}
+
+.input-container {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+}
+
+.text {
+  color: #fff;
+  font-size: 1.7rem;
+  margin: 4px 10px 0 15px;
+  cursor: context-menu;
+  max-width: 260px;
+  overflow-x: hidden;
+}
+
+.margin-bot {
+  margin-bottom: 4px;
+}
+
+.margin-right {
+  margin-right: 15px;
+}
+
+.margin-0 {
+  margin: 0 0 0 0;
+}
+
+.addContainer {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background: #131316;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 0 10px;
+}
+
+.wiggle {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
