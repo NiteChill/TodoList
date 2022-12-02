@@ -46,6 +46,7 @@ function build(item, resetNbr) {
   const input = document.createElement('input');
   input.setAttribute('type', 'text');
   input.classList.add('input');
+  input.style.color= item.color;
 
   const edit = document.createElement('i');
   edit.addEventListener('click', () => {
@@ -126,6 +127,7 @@ function build(item, resetNbr) {
     color.style.color = colorNbr.color;
     color.addEventListener('click', () => {
       container.style.background = colorNbr.color;
+      input.style.color = colorNbr.color;
       item.color = colorNbr.color;
       console.log(colorNbr.color);
       switch (colorNbr.color) {
@@ -191,7 +193,8 @@ function build(item, resetNbr) {
           text.style.display = 'none';
           save.style.display = 'flex';
           containerColorDivider.style.height = 'auto';
-        } else if (!boolean && item.message === '' && input.value === '') {
+          input.value = item.message;
+        } else if (!boolean && item.message === '') {
           buildArray.splice(buildArray.indexOf(item), 1);
           update('tab');
           switchEnable(true);
@@ -204,6 +207,7 @@ function build(item, resetNbr) {
           save.style.display = 'none';
           containerColorDivider.style.height = '0';
           switchEnable(true);
+          input.value = "";
         }
         break;
       case 'text':
