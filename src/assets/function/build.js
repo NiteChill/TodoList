@@ -34,7 +34,7 @@ function build(item, resetNbr) {
       item.done = false;
       update('checkbox', false);
     }
-    storageParse = JSON.parse(storage);
+    storageParse = JSON.parse(buildArray);
   });
 
   const text = document.createElement('div');
@@ -58,7 +58,7 @@ function build(item, resetNbr) {
       item.edit = false;
       update('edit', false);
     }
-    storageParse = JSON.parse(storage);
+    storageParse = JSON.parse(buildArray);
   });
 
   const bin = document.createElement('i');
@@ -66,7 +66,7 @@ function build(item, resetNbr) {
   bin.addEventListener('click', () => {
     buildArray.splice(buildArray.indexOf(item), 1);
     update('tab');
-    storageParse = JSON.parse(storage);
+    storageParse = JSON.parse(buildArray);
   });
 
   const save = document.createElement('i');
@@ -91,7 +91,7 @@ function build(item, resetNbr) {
         container.classList.remove('wiggle');
       }, 820);
     }
-    storageParse = JSON.parse(storage);
+    storageParse = JSON.parse(buildArray);
   });
 
   const containerColor = document.createElement('div');
@@ -133,7 +133,7 @@ function build(item, resetNbr) {
       container.style.background = colorNbr.color;
       input.style.color = colorNbr.color;
       item.color = colorNbr.color;
-      console.log(colorNbr.color);
+      storageParse = JSON.parse(buildArray);
       switch (colorNbr.color) {
         case '#FFD6FF' :
           colorBorder.style.margin= '0 0 0 15px';
