@@ -4,6 +4,7 @@ import build from './assets/function/build';
 import './default.scss';
 const app = document.getElementById('app');
 const todo = document.createElement('div');
+let storageParse;
 todo.classList.add('todo');
 let addIsEnabled = true;
 function switchEnable(boolean) {
@@ -14,4 +15,4 @@ buildArray.forEach((item) => {
 	build(item);
 });
 add();
-export { todo, app, switchEnable, addIsEnabled };
+export { todo, app, switchEnable, addIsEnabled, storageParse };

@@ -1,5 +1,5 @@
 import buildArray from './array';
-import { todo, switchEnable } from '../../index';
+import { todo, switchEnable, storageParse } from '../../index';
 import colorArray from './colorArray';
 let idNbr = 0;
 let secureIdNbr = 0;
@@ -34,6 +34,7 @@ function build(item, resetNbr) {
       item.done = false;
       update('checkbox', false);
     }
+    storageParse = JSON.parse(storage);
   });
 
   const text = document.createElement('div');
@@ -57,6 +58,7 @@ function build(item, resetNbr) {
       item.edit = false;
       update('edit', false);
     }
+    storageParse = JSON.parse(storage);
   });
 
   const bin = document.createElement('i');
@@ -64,6 +66,7 @@ function build(item, resetNbr) {
   bin.addEventListener('click', () => {
     buildArray.splice(buildArray.indexOf(item), 1);
     update('tab');
+    storageParse = JSON.parse(storage);
   });
 
   const save = document.createElement('i');
@@ -88,6 +91,7 @@ function build(item, resetNbr) {
         container.classList.remove('wiggle');
       }, 820);
     }
+    storageParse = JSON.parse(storage);
   });
 
   const containerColor = document.createElement('div');

@@ -32,6 +32,7 @@ function add() {
 				addContainer.classList.remove('wiggle');
 			}, 820);
 		}
+		storageParse = JSON.parse(storage);
 	});
 }
 
