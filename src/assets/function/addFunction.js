@@ -32,7 +32,7 @@ function add() {
 				addContainer.classList.remove('wiggle');
 			}, 820);
 		}
-		storageParse = JSON.parse(buildArray);
+		localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
 	});
 }
 
