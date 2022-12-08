@@ -9,6 +9,7 @@ if ( storageParse && storageParse.length !== 0) {
 } else {
 	buildArray = [
 		{
+			title: 'Your Todo Title',
 		  id: 0,
 		  done: false,
 		  edit: false,
@@ -17,5 +18,6 @@ if ( storageParse && storageParse.length !== 0) {
 		},
 	  ];
 };
+console.log(buildArray);
 
 export default buildArray;

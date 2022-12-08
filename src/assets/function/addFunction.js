@@ -15,6 +15,7 @@ function add() {
 		if (addIsEnabled) {
 			todo.innerHTML = '';
 			buildArray.push({
+				title: 'Your Todo Title',
 				id: idNbr,
 				done: false,
 				edit: true,

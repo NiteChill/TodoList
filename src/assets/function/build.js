@@ -101,57 +101,37 @@ function build(item, resetNbr) {
   const divider = document.createElement('div');
   divider.classList.add('divider');
   const colorBorder = document.createElement('i');
-      colorBorder.className = 'fa-regular fa-square fa-2x icon-color-border';
-      switch (item.color) {
-        case '#FFD6FF' :
-          colorBorder.style.margin= '0 0 0 15px';
-          break;
-        case '#E7C6FF' :
-          colorBorder.style.margin= '0 0 0 100px';
-          break;
-        case '#C8B6FF' :
-          colorBorder.style.margin= '0 0 0 184px';
-          break;
-        case '#B8C0FF' :
-          colorBorder.style.margin= '0 0 0 269px';
-          break;
-        case '#BBD0FF' :
-          colorBorder.style.margin= '0 0 0 353px';
-          break;
-        case '#131316' :
-          colorBorder.style.margin= '0 0 0 437px';
-          break;
-        default:
-          console.log('error color');
-      }
-      containerColor.append(colorBorder);
+  colorBorder.className = 'fa-regular fa-square fa-2x icon-color-border';
+  containerColor.append(colorBorder);
   colorArray.forEach((colorNbr) => {
     const color = document.createElement('i');
     color.className = 'fa-solid fa-square fa-2x icon-color';
     color.style.color = colorNbr.color;
     color.addEventListener('click', () => {
+      containerWidth = (container.getBoundingClientRect().width - 168)/5;
+      console.log(containerWidth);
       container.style.background = colorNbr.color;
       input.style.color = colorNbr.color;
       item.color = colorNbr.color;
       localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
       switch (colorNbr.color) {
         case '#FFD6FF' :
-          colorBorder.style.margin= '0 0 0 15px';
+          colorBorder.style.margin= `0 0 0 0`;
           break;
         case '#E7C6FF' :
-          colorBorder.style.margin= '0 0 0 100px';
+          colorBorder.style.margin= `0 0 0 ${ containerWidth + 15}px`;
           break;
         case '#C8B6FF' :
-          colorBorder.style.margin= '0 0 0 184px';
+          colorBorder.style.margin= `0 0 0 ${ 2 * containerWidth + 30 }px`;
           break;
         case '#B8C0FF' :
-          colorBorder.style.margin= '0 0 0 269px';
+          colorBorder.style.margin= `0 0 0 ${ 3 * containerWidth + 43 }px`;
           break;
         case '#BBD0FF' :
-          colorBorder.style.margin= '0 0 0 353px';
+          colorBorder.style.margin= `0 0 0 ${ 4 * containerWidth + 56 }px`;
           break;
         case '#131316' :
-          colorBorder.style.margin= '0 0 0 437px';
+          colorBorder.style.margin= `0 0 0 ${ 5 * containerWidth + 70 }px`;
           break;
         default:
           console.log('error color 2');
@@ -229,6 +209,30 @@ function build(item, resetNbr) {
         console.log('error');
         break;
     }
+  }
+  let containerWidth = (container.getBoundingClientRect().width - 168)/5;
+  console.log(containerWidth);
+  switch (item.color) {
+    case '#FFD6FF' :
+      colorBorder.style.margin= `0 0 0 0`;
+      break;
+    case '#E7C6FF' :
+      colorBorder.style.margin= `0 0 0 ${ containerWidth + 15}px`;
+      break;
+    case '#C8B6FF' :
+      colorBorder.style.margin= `0 0 0 ${ 2 * containerWidth + 30 }px`;
+      break;
+    case '#B8C0FF' :
+      colorBorder.style.margin= `0 0 0 ${ 3 * containerWidth + 43 }px`;
+      break;
+    case '#BBD0FF' :
+      colorBorder.style.margin= `0 0 0 ${ 4 * containerWidth + 56 }px`;
+      break;
+    case '#131316' :
+      colorBorder.style.margin= `0 0 0 ${ 5 * containerWidth + 70 }px`;
+      break;
+    default:
+      console.log('error color 2');
   }
 }
 
