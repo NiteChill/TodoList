@@ -48,6 +48,7 @@ function build(item, resetNbr) {
   input.setAttribute('type', 'text');
   input.classList.add('input');
   input.style.color= item.color;
+  input.value = item.message;
 
   const edit = document.createElement('i');
   edit.addEventListener('click', () => {
@@ -108,7 +109,12 @@ function build(item, resetNbr) {
     color.className = 'fa-solid fa-square fa-2x icon-color';
     color.style.color = colorNbr.color;
     color.addEventListener('click', () => {
-      containerWidth = (container.getBoundingClientRect().width - 168)/5;
+      documentWidth = app.getBoundingClientRect().width;
+      if (documentWidth === 320){
+        containerWidth = (container.getBoundingClientRect().width * 1.25 - 168)/5;
+      } else {
+        containerWidth = (container.getBoundingClientRect().width - 168)/5;
+      }
       console.log(containerWidth);
       container.style.background = colorNbr.color;
       input.style.color = colorNbr.color;
@@ -210,8 +216,15 @@ function build(item, resetNbr) {
         break;
     }
   }
-  let containerWidth = (container.getBoundingClientRect().width - 168)/5;
-  console.log(containerWidth);
+  let documentWidth = app.getBoundingClientRect().width;
+  //*1.25 //320
+  console.log(documentWidth);
+  let containerWidth;
+  if (documentWidth === 320){
+    containerWidth = (container.getBoundingClientRect().width * 1.25 - 168)/5;
+  } else {
+    containerWidth = (container.getBoundingClientRect().width - 168)/5;
+  }
   switch (item.color) {
     case '#FFD6FF' :
       colorBorder.style.margin= `0 0 0 0`;

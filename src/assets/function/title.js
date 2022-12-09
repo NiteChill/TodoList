@@ -5,7 +5,7 @@ function title() {
   const titleContainer = document.createElement('div');
   titleContainer.classList.add('titleContainer');
   const titleSave = document.createElement('i');
-  titleSave.className = 'fa-regular fa-floppy-disk fa-2x iconText';
+  titleSave.className = 'fa-regular fa-floppy-disk fa-2x iconTextSave';
   const titleText = document.createElement('div');
   titleText.classList.add('titleText');
   titleText.textContent= buildArray[0].title;
@@ -13,8 +13,11 @@ function title() {
   titleInput.setAttribute('type', 'text');
   titleInput.classList.add('titleInput');
   const titleEdit = document.createElement('i');
-  titleEdit.className= 'fa-regular fa-pen-to-square fa-2x margin-bot iconText';
+  titleEdit.className= 'fa-regular fa-pen-to-square fa-2x margin-bot iconTextEdit';
   titleContainer.append( titleSave, titleText, titleInput, titleEdit );
+  titleEdit.addEventListener('click', () => {
+    
+  })
   app.append( titleContainer );
 }
 
