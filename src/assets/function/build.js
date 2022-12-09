@@ -109,8 +109,8 @@ function build(item, resetNbr) {
     color.className = 'fa-solid fa-square fa-2x icon-color';
     color.style.color = colorNbr.color;
     color.addEventListener('click', () => {
-      documentWidth = app.getBoundingClientRect().width;
-      if (documentWidth === 320){
+      documentWidth = document.getElementById('body').getBoundingClientRect().width;
+      if (documentWidth <= 410){
         containerWidth = (container.getBoundingClientRect().width * 1.25 - 168)/5;
       } else {
         containerWidth = (container.getBoundingClientRect().width - 168)/5;
@@ -216,11 +216,11 @@ function build(item, resetNbr) {
         break;
     }
   }
-  let documentWidth = app.getBoundingClientRect().width;
+  let documentWidth = document.getElementById('body').getBoundingClientRect().width;
   //*1.25 //320
   console.log(documentWidth);
   let containerWidth;
-  if (documentWidth === 320){
+  if (documentWidth <= 410){
     containerWidth = (container.getBoundingClientRect().width * 1.25 - 168)/5;
   } else {
     containerWidth = (container.getBoundingClientRect().width - 168)/5;
