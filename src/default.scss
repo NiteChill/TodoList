@@ -89,7 +89,7 @@ body {
   border-radius: 5px;
   display: flex;
   height: 30px;
-  width: 0px;
+  width: 0;
   margin: 0 10px 0 10px;
   transition: all 0.5s;
   font-size: 1.7rem;
@@ -149,10 +149,15 @@ body {
 
 .titleContainer {
   display: flex;
+  margin: 30px 0 25px 0;
+  display: flex;
   flex-direction: row;
   height: 60px;
+  width: 100%;
   align-items: center;
   justify-content: center;
+  width: auto;
+  align-self: center;
 }
 
 .titleInput {
@@ -161,48 +166,59 @@ body {
   border: none;
   outline: none;
   border-radius: 5px;
-  display: flex;
   height: 30px;
   width: 0;
-  margin: 0 10px 0 10px;
   transition: all 0.5s;
   font-size: 1.7rem;
 }
 
 .titleText {
+  height: 35px;
   color: #131316;
   font-size: 2rem;
   font-weight: 500;
   cursor: context-menu;
+  text-align: center;
+  transition: all .5s;
+  z-index: 0;
+}
+
+.inputContainer {
+  display: flex;
+  flex: 1;
+  height: 30px;
+  justify-content: end;
 }
 
 .iconTextSave {
-  display: none;
+  display: flex;
   color: #131316;
-  margin: 0 20px 0 0;
   cursor: pointer;
+  margin: 0 15px 0 0;
 }
 
 .iconTextEdit {
-  display: none;
+  display: flex;
   color: #131316;
-  margin: 0 20px 0 0;
+  margin: 0 0 4px 15px;
   cursor: pointer;
-  opacity: 0;
   transition: all .5s;
 }
 
 .titleContainer:hover .iconTextEdit {
   display: flex;
-  opacity: 1;
-}
-
-.titleContainer:hover {
-  margin-left: 52.15px;
 }
 @media screen and ( max-width : 410px ) {
   #app {
     transform: scale(.8);
     margin-top: -50px;
   }
+}
+
+.inputTextContainer{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  flex: 1;
 }
