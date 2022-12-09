@@ -66,7 +66,6 @@ function title() {
       editTitle = true;
       editTF = true;
     }
-    // titleInput.style.width = titleText.getBoundingClientRect().width + "px";
   })
   app.append( titleContainer );
 }
