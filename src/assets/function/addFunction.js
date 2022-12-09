@@ -11,7 +11,7 @@ function add() {
 	addContainer.append(add);
 	app.append(addContainer);
 	addContainer.addEventListener('click', () => {
-		let random = Math.floor(Math.random() * 6);
+		const random = Math.floor(Math.random() * 6);
 		if (addIsEnabled) {
 			todo.innerHTML = '';
 			buildArray.push({
