@@ -16,19 +16,26 @@ function title() {
   const titleSave = document.createElement('i');
   titleSave.className = 'fa-solid fa-floppy-disk fa-2x iconTextSave';
   titleSave.addEventListener('click', () => {
-    titleEdit.classList.replace('fa-xmark', 'fa-pen-to-square');
-    titleEdit.style.marginBot = '0';
-    titleInput.style.width = '0';
-    titleText.style.display = 'flex';
-    titleSave.style.display = 'none';
-    titleEdit.style.color = '#fff';
-    editTitle = false;
-    buildArray.forEach(item => {
-      item.title = titleInput.value;
-    });
-    titleText.textContent= buildArray[0].title;
-    localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
-    editTF = false;
+    if ( titleInput.value !== "" ) {
+      titleEdit.classList.replace('fa-xmark', 'fa-pen-to-square');
+      titleEdit.style.marginBot = '0';
+      titleInput.style.width = '0';
+      titleText.style.display = 'flex';
+      titleSave.style.display = 'none';
+      titleEdit.style.color = '#fff';
+      editTitle = false;
+      buildArray.forEach(item => {
+        item.title = titleInput.value;
+      });
+      titleText.textContent = buildArray[0].title;
+      localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
+      editTF = false;
+    } else { 
+      titleContainer.classList.add('wiggle');
+      window.setTimeout(() => {
+        titleContainer.classList.remove('wiggle');
+      }, 820);
+    }
   });
   const inputTextContainer = document.createElement('div');
   inputTextContainer.classList.add('inputTextContainer');
@@ -65,6 +72,29 @@ function title() {
       titleEdit.style.color = '#131316';
       editTitle = true;
       editTF = true;
+      document.addEventListener('keypress', (e) => {
+        if ( e.key === 'Enter' && titleInput.value !== "" && editTF !== false ) {
+          console.log('hi');
+          titleEdit.classList.replace('fa-xmark', 'fa-pen-to-square');
+          titleEdit.style.marginBot = '0';
+          titleInput.style.width = '0';
+          titleText.style.display = 'flex';
+          titleSave.style.display = 'none';
+          titleEdit.style.color = '#fff';
+          editTitle = false;
+          buildArray.forEach(item => {
+            item.title = titleInput.value;
+          });
+          titleText.textContent = buildArray[0].title;
+          localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
+          editTF = false;
+        } else if ( e.key === 'Enter' && titleInput.value === "" && editTF !== false ) {
+          titleContainer.classList.add('wiggle');
+          window.setTimeout(() => {
+            titleContainer.classList.remove('wiggle');
+          }, 820);
+        }
+      });
     }
   })
   app.append( titleContainer );

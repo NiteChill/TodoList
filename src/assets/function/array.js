@@ -4,7 +4,6 @@ const storageParse = JSON.parse(storage);
 let buildArray;
 
 if ( storageParse && storageParse.length !== 0) {
-  console.log(storageParse);
 	buildArray = storageParse;
 } else {
 	buildArray = [
@@ -18,6 +17,5 @@ if ( storageParse && storageParse.length !== 0) {
 		},
 	  ];
 };
-console.log(buildArray);
 
 export default buildArray;

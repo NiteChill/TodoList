@@ -61,6 +61,29 @@ function build(item, resetNbr) {
     }
     localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
   });
+  document.addEventListener('keypress', (e) => {
+    console.log(item.edit);
+  if ( e.key === 'Enter' && input.value !== "" && item.edit ) {
+    item.message = input.value;
+    input.value = '';
+    input.style.flex = '0';
+    save.style.display = 'none';
+    text.style.display = 'flex';
+    edit.classList.replace('fa-xmark', 'fa-pen-to-square');
+    edit.classList.replace('fa-solid', 'fa-regular');
+    edit.classList.add('margin-bot');
+    update('text');
+    item.edit = false;
+    switchEnable(true);
+    containerColorDivider.style.height = '0';
+  } else if ( e.key === 'Enter' && input.value === "" && item.edit ) {
+    container.classList.add('wiggle');
+    window.setTimeout(() => {
+    container.classList.remove('wiggle');
+    }, 820);
+  }
+  localStorage.setItem("buildArrayStorage", JSON.stringify(buildArray));
+})
 
   const bin = document.createElement('i');
   bin.className = 'fa-regular fa-square-minus fa-2x margin-right icon';
@@ -115,7 +138,6 @@ function build(item, resetNbr) {
       } else {
         containerWidth = (container.getBoundingClientRect().width - 168)/5;
       }
-      console.log(containerWidth);
       container.style.background = colorNbr.color;
       input.style.color = colorNbr.color;
       item.color = colorNbr.color;
@@ -207,7 +229,7 @@ function build(item, resetNbr) {
         switchEnable(true);
         todo.innerHTML = '';
         secureIdNbr = 0;
-        buildArray.forEach((item) => {
+        buildArray.forEach( (item) => {
           build(item, true);
         });
         break;
@@ -217,8 +239,6 @@ function build(item, resetNbr) {
     }
   }
   let documentWidth = document.getElementById('body').getBoundingClientRect().width;
-  //*1.25 //320
-  console.log(documentWidth);
   let containerWidth;
   if (documentWidth <= 410){
     containerWidth = (container.getBoundingClientRect().width * 1.25 - 168)/5;
